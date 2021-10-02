@@ -45,8 +45,7 @@ CREATE PROCEDURE film_cat(in number int)
 BEGIN
 	select c.name, count(fc.film_id) as n_films
 	from film_category fc
-	join category c
-	on fc.category_id = c.category_id
+	join category c on fc.category_id = c.category_id
 	group by c.name
 	having n_films > number;
 END
